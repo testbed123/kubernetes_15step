@@ -1,0 +1,26 @@
+########################
+rm -rf vagrant-directory
+
+########################
+git clone https://github.com/takara9/codes_for_lessons
+
+
+#########################
+# BUG FIX
+#########################
+
+# vagrant-kubernets
+git clone https://github.com/takara9/vagrant-kubernetes
+cp ./bug-fix/vagrant-kubernetes/main.yml ./vagrant-kubernetes/playbook/kubernetes/tasks/
+
+
+# vagrant-nfs
+git clone https://github.com/takara9/vagrant-nfs
+cp ./bug-fix/vagrant-nfs/Vagrantfile ./vagrant-nfs/
+
+
+# vagrant-minikube
+git clone https://github.com/takara9/vagrant-minikube
+cp ./bug-fix/vagrant-minikube/Vagrantfile ./vagrant-minikube/
+cp ./bug-fix/vagrant-minikube/minikube.yml ./vagrant-minikube/
+
