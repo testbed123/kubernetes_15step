@@ -24,3 +24,10 @@ git clone https://github.com/takara9/vagrant-minikube
 cp ./bug-fix/vagrant-minikube/Vagrantfile ./vagrant-minikube/
 cp ./bug-fix/vagrant-minikube/minikube.yml ./vagrant-minikube/
 
+
+# vagrant-glusterfs
+git clone https://github.com/takara9/vagrant-glusterfs
+cp ./bug-fix/vagrant-glusterfs/Vagrantfile ./vagrant-glusterfs/
+cp ./bug-fix/vagrant-glusterfs/glusterfs.yml ./vagrant-glusterfs/ansible-playbook/
+cp ./bug-fix/vagrant-glusterfs/heketi-host.yml ./vagrant-glusterfs/ansible-playbook/
+cp ./bug-fix/vagrant-glusterfs/heketi-node.yml ./vagrant-glusterfs/ansible-playbook/

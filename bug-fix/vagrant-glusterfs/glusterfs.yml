@@ -1,0 +1,29 @@
+- hosts: all
+  become: yes
+
+  tasks:
+    - name: AddGlusterFS Repository - Bug Fix (2020/9/12)
+      shell: |
+        sudo apt-key adv --keyserver keyserver.ubuntu.com --recv-keys 13E01B7B3FE869A9
+        sudo add-apt-repository "deb http://ppa.launchpad.net/gluster/glusterfs-7/ubuntu $(lsb_release -s -c) main"
+        sudo apt-get update
+
+    - name: Install the prerequisite packeage
+      apt:
+        name: "{{ packages }}"
+        state: present
+        update_cache: yes
+      vars:
+        packages:
+        - software-properties-common
+        - thin-provisioning-tools
+        - glusterfs-server
+        - glusterfs-client
+
+    - name: cp ssh-key
+      template:
+        src:  /vagrant/ssh/id_rsa.pub
+        dest: /root/.ssh/authorized_keys
+        mode: '0600'
+        owner: root
+        group: root
