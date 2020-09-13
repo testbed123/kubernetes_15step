@@ -152,11 +152,14 @@
   when:
     - ansible_facts.distribution == "Ubuntu"
 - name: add Kubernetes' APT repository
-  apt_repository:
-    repo: deb http://apt.kubernetes.io/ kubernetes-xenial main
-    state: present
-    validate_certs: no
-    filename: 'kubernetes'
+  shell: |
+    sudo add-apt-repository "deb http://apt.kubernetes.io/ kubernetes-xenial main"
+    sudo apt-get update
+#  apt_repository:
+#    repo: deb http://apt.kubernetes.io/ kubernetes-xenial main
+#    state: present
+#    validate_certs: no
+#    filename: 'kubernetes'
   when:
     - ansible_facts.distribution == "Ubuntu"
 - name: Install kubectl
